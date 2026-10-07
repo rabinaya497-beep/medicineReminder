@@ -1,0 +1,38 @@
+.history {
+    width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.history table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 25px;
+}
+
+.history th,
+.history td {
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+.history th {
+    background-color: #4a6cf7;
+    color: white;
+}
+
+.taken {
+    color: green;
+    font-weight: bold;
+}
+
+.missed {
+    color: red;
+    font-weight: bold;
+}
+
+.history button {
+    width: 200px;
+    margin-top: 25px;
+}

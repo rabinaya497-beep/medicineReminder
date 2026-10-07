@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Reminder</title>
+    <!-- FontAwesome for Medical & Input Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0f172a; /* Dark sleek background */
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Glowing Animated Background Blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 8s ease-in-out infinite alternate;
+        }
+
+        .blob-1 {
+            top: 10%;
+            left: 15%;
+            width: 280px;
+            height: 280px;
+            background: #ff007f; /* Neon Pink */
+        }
+
+        .blob-2 {
+            bottom: 10%;
+            right: 15%;
+            width: 320px;
+            height: 320px;
+            background: #00f2fe; /* Cyan Glow */
+            animation-delay: -4s;
+        }
+
+        .blob-3 {
+            top: 40%;
+            right: 35%;
+            width: 200px;
+            height: 200px;
+            background: #7928ca; /* Purple Glow */
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) scale(1); }
+            100% { transform: translateY(30px) scale(1.1); }
+        }
+
+        /* Glassmorphism Card Container */
+        .login-box {
+            position: relative;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 40px 32px;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 390px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .pill-icon {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #ff007f, #7928ca);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 28px;
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(255, 0, 127, 0.4);
+        }
+
+        .login-box h1 {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .login-box p {
+            color: #cbd5e1;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        /* Input Field Styling */
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 14px 16px 14px 48px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            font-size: 14px;
+            color: #ffffff;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .login-box input::placeholder {
+            color: #94a3b8;
+        }
+
+        .login-box input:focus {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #00f2fe;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+        }
+
+        .login-box input:focus + i {
+            color: #00f2fe;
+        }
+
+        /* Gradient Button with Hover Effects */
+        .login-box button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(90deg, #ff007f 0%, #7928ca 50%, #00f2fe 100%);
+            background-size: 200% auto;
+            border: none;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.4s ease;
+            margin-top: 10px;
+            box-shadow: 0 10px 25px rgba(121, 40, 202, 0.4);
+        }
+
+        .login-box button:hover {
+            background-position: right center;
+            box-shadow: 0 12px 30px rgba(0, 242, 254, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .login-box button:active {
+            transform: translateY(0);
+        }
+
+        .footer-text {
+            margin-top: 24px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .footer-text a {
+            color: #00f2fe;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .footer-text a:hover {
+            color: #ff007f;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background glowing shapes -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="login-box">
+        <div class="pill-icon">
+            <i class="fa-solid fa-pills"></i>
+        </div>
+        <h1>Medicine Reminder</h1>
+        <p>Login to manage your medicines</p>
+
+        <div class="input-group">
+            <input type="email" placeholder="Enter Email" required>
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+
+        <div class="input-group">
+            <input type="password" placeholder="Enter Password" required>
+            <i class="fa-solid fa-lock"></i>
+        </div>
+
+        <button onclick="login()">Login</button>
+
+        <p class="footer-text">Don't have an account? <a href="#">Register</a></p>
+    </div>
+
+    <script>
+        function login() {
+            window.location.href = "dashboard.html";
+        }
+    </script>
+
+</body>
+</html>
